@@ -10,7 +10,8 @@ public class NewPlayerController : MonoBehaviour
     public bool grounded = false;
     private Animator anim;
     bool facingRight = true;
-    //public jumpSoundEffect;
+    public AudioSource jumpSoundEffect;
+    public AudioSource shootSoundEffect;
 
     // Use this for initialization
     void Start()
@@ -40,7 +41,7 @@ public class NewPlayerController : MonoBehaviour
                 GetComponent<Rigidbody2D>().velocity.x, jump);
 
             grounded = false;
-           // jumpSoundEffect.Play();
+            jumpSoundEffect.Play();
         }
 
         // Move Right
@@ -70,8 +71,8 @@ public class NewPlayerController : MonoBehaviour
         }
 
         // Shoot
-        if (Input.GetKey(KeyCode.Space)) {
-
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            shootSoundEffect.Play();
             }
 
     }
