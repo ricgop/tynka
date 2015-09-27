@@ -9,6 +9,8 @@ public class NewPlayerController : MonoBehaviour
     public float jump;
     public bool grounded = false;
     private Animator anim;
+    bool facingRight = true;
+    //public jumpSoundEffect;
 
     // Use this for initialization
     void Start()
@@ -36,6 +38,9 @@ public class NewPlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 GetComponent<Rigidbody2D>().velocity.x, jump);
+
+            grounded = false;
+           // jumpSoundEffect.Play();
         }
 
         // Move Right
@@ -44,6 +49,11 @@ public class NewPlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 speed, GetComponent<Rigidbody2D>().velocity.y);
+
+            // Flip Right
+            if (facingRight == false)
+                Flip();
+            facingRight = true;
         }
 
         // Move Left
@@ -52,6 +62,11 @@ public class NewPlayerController : MonoBehaviour
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 -speed, GetComponent<Rigidbody2D>().velocity.y);
+
+            // Flip Left
+            if (facingRight == true)
+            Flip();
+            facingRight = false;
         }
 
         // Shoot
@@ -59,6 +74,14 @@ public class NewPlayerController : MonoBehaviour
 
             }
 
+    }
+
+    // Flipping method
+    void Flip()
+    {
+        Vector3 theScale = transform.localScale;
+        theScale.x *= -1;
+        transform.localScale = theScale;
     }
 
 }
