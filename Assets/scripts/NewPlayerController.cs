@@ -11,16 +11,20 @@ public class NewPlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+// Update is called once per frame
+void Update()
     {
 
+
+
         // Jump
-        if (Input.GetKeyDown(KeyCode.Space) ||
-            Input.GetKeyDown(KeyCode.W))
+        grounded = true;
+        if ((Input.GetKeyDown(KeyCode.Space) ||
+            Input.GetKeyDown(KeyCode.W)) && grounded)
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 GetComponent<Rigidbody2D>().velocity.x, jump);
@@ -28,7 +32,7 @@ public class NewPlayerController : MonoBehaviour {
 
         // Move Right
         if (Input.GetKey(KeyCode.RightArrow) ||
-    Input.GetKeyDown(KeyCode.D))
+            Input.GetKeyDown(KeyCode.D))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 speed, GetComponent<Rigidbody2D>().velocity.y);
@@ -37,7 +41,7 @@ public class NewPlayerController : MonoBehaviour {
 
         // Move Left
         if (Input.GetKey(KeyCode.LeftArrow) ||
-    Input.GetKeyDown(KeyCode.A))
+            Input.GetKeyDown(KeyCode.A))
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(
                 -speed, GetComponent<Rigidbody2D>().velocity.y);
