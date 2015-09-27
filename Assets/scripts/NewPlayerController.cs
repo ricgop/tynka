@@ -71,9 +71,10 @@ public class NewPlayerController : MonoBehaviour
         }
 
         // Shoot
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
             shootSoundEffect.Play();
-            }
+        }
 
     }
 
@@ -84,5 +85,6 @@ public class NewPlayerController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
+
 
 }
