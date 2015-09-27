@@ -10,6 +10,7 @@ public class NewPlayerController : MonoBehaviour
     public bool grounded = false;
     private Animator anim;
     bool facingRight = true;
+    public bool fire = false;
     public AudioSource jumpSoundEffect;
     public AudioSource shootSoundEffect;
 
@@ -29,9 +30,10 @@ public class NewPlayerController : MonoBehaviour
     void Update()
     {
         anim.SetBool("grounded", grounded);
+        anim.SetBool("fire", fire);
         anim.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
     }
-
+    
     void Movement() {
         // Jump
         if ((Input.GetKeyDown(KeyCode.UpArrow) ||
@@ -53,7 +55,7 @@ public class NewPlayerController : MonoBehaviour
 
             // Flip Right
             if (facingRight == false)
-                Flip();
+            Flip();
             facingRight = true;
         }
 
@@ -74,6 +76,7 @@ public class NewPlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             shootSoundEffect.Play();
+            fire = true;
         }
 
     }
