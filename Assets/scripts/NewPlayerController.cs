@@ -7,12 +7,16 @@ public class NewPlayerController : MonoBehaviour
     // Movement vairables
     public float speed;
     public float jump;
-    public bool grounded = false;
-    private Animator anim;
-    bool facingRight = true;
-    public bool fire = false;
+    public float fireDelay = 2f;
     public AudioSource jumpSoundEffect;
     public AudioSource shootSoundEffect;
+    public bool grounded = false;
+    public bool fire = false;
+
+    bool facingRight = true;
+    float restartTimer;
+    private Animator anim;
+
 
     // Use this for initialization
     void Start()
@@ -30,8 +34,11 @@ public class NewPlayerController : MonoBehaviour
     void Update()
     {
         anim.SetBool("grounded", grounded);
-        anim.SetBool("fire", fire);
+        anim.SetBool("Fire", fire);
         anim.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
+
+        restartTimer += Time.deltaTime;
+        if (restartTimer >= fireDelay) { fire = false; }
     }
     
     void Movement() {
@@ -77,6 +84,7 @@ public class NewPlayerController : MonoBehaviour
         {
             shootSoundEffect.Play();
             fire = true;
+            restartTimer = 0;
         }
 
     }
@@ -88,6 +96,5 @@ public class NewPlayerController : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-
 
 }

@@ -26,7 +26,7 @@ public class PlayerBullet : MonoBehaviour {
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1));
 
         // Destroy bullet
-        if(transform.position.y > max.y)
+        if((transform.position.x > max.x) || (transform.position.x < -max.x))
         {
             Destroy(gameObject);
         }

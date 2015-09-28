@@ -1,3 +1,5 @@
 [user]
 	email = richard.gopaul@gmail.com
 	name = gopi
+[core]
+	autocrlf = false
