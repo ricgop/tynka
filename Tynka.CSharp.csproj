@@ -93,6 +93,7 @@
     <Compile Include="Assets\scripts\BackgroundScroll.cs" />
     <Compile Include="Assets\scripts\NewPlayerController.cs" />
     <Compile Include="Assets\scripts\PlayerBullet.cs" />
+    <Compile Include="Assets\scripts\SeberKorunku.cs" />
     <Compile Include="Assets\scroll.cs" />
   </ItemGroup>
   <ItemGroup>
