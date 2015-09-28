@@ -7,7 +7,7 @@ public class PlayerBullet : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        speed = 10f;
+        speed = 8f;
 	}
 	
 	// Update is called once per frame
@@ -26,10 +26,10 @@ public class PlayerBullet : MonoBehaviour {
         Vector2 max = Camera.main.ViewportToWorldPoint(new Vector3(1, 1));
 
         // Destroy bullet
-        if((transform.position.x > max.x) || (transform.position.x < -max.x))
+       /* if((transform.position.x > max.x) || (transform.position.x < -max.x))
         {
             Destroy(gameObject);
-        }
+        }*/
 	
 	}
 }

@@ -84,8 +84,10 @@
     <Compile Include="Assets\SampleScenes\Scripts\ParticleSceneControls.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\PlaceTargetWithMouse.cs" />
     <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
+    <Compile Include="Assets\scripts\BackgroundScroll.cs" />
     <Compile Include="Assets\scripts\NewPlayerController.cs" />
     <Compile Include="Assets\scripts\PlayerBullet.cs" />
+    <Compile Include="Assets\scroll.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
