@@ -14,9 +14,9 @@ public class NewPlayerController : MonoBehaviour
     public bool fire = false;
     public GameObject PlayerBulletGO;
     public GameObject bulletRight;
-    public GameObject bulletLeft;
+    //public GameObject bulletLeft;
 
-    bool facingRight = true;
+    public bool facingRight = true;
     float restartTimer;
     private Animator anim;
 
@@ -36,10 +36,12 @@ public class NewPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Animation variables setting
         anim.SetBool("grounded", grounded);
         anim.SetBool("Fire", fire);
         anim.SetFloat("Speed", Mathf.Abs(Input.GetAxis("Horizontal")));
 
+        // Bullet function
         restartTimer += Time.deltaTime;
         if (restartTimer >= fireDelay) { fire = false; }
     }
@@ -85,11 +87,10 @@ public class NewPlayerController : MonoBehaviour
         // Shoot
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            GameObject shootRight = (GameObject)Instantiate(PlayerBulletGO);
-            shootRight.transform.position = bulletRight.transform.position;
+                GameObject shootRight = (GameObject)Instantiate(PlayerBulletGO);
+                shootRight.transform.position = bulletRight.transform.position;
+                //Instantiate(playerBullet, transform.position, transform.rotation);
 
-            GameObject shootLeft = (GameObject)Instantiate(PlayerBulletGO);
-            shootLeft.transform.position = bulletRight.transform.position;
 
             shootSoundEffect.Play();
             fire = true;
