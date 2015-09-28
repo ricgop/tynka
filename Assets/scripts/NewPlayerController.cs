@@ -12,6 +12,9 @@ public class NewPlayerController : MonoBehaviour
     public AudioSource shootSoundEffect;
     public bool grounded = false;
     public bool fire = false;
+    public GameObject PlayerBulletGO;
+    public GameObject bulletRight;
+    public GameObject bulletLeft;
 
     bool facingRight = true;
     float restartTimer;
@@ -82,6 +85,12 @@ public class NewPlayerController : MonoBehaviour
         // Shoot
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            GameObject shootRight = (GameObject)Instantiate(PlayerBulletGO);
+            shootRight.transform.position = bulletRight.transform.position;
+
+            GameObject shootLeft = (GameObject)Instantiate(PlayerBulletGO);
+            shootLeft.transform.position = bulletRight.transform.position;
+
             shootSoundEffect.Play();
             fire = true;
             restartTimer = 0;
