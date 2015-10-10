@@ -29,13 +29,15 @@ public class NewPlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        grounded = Physics2D.IsTouchingLayers(GetComponent<Collider2D>(), LayerMask.GetMask("ground"));
-        Movement();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // fix-0001(Player Controller Random latency)
+        grounded = Physics2D.IsTouchingLayers(GetComponent<Collider2D>(), LayerMask.GetMask("ground"));
+        Movement();
+
         // Animation variables setting
         anim.SetBool("grounded", grounded);
         anim.SetBool("Fire", fire);
@@ -47,6 +49,7 @@ public class NewPlayerController : MonoBehaviour
     }
     
     void Movement() {
+
         // Jump
         if ((Input.GetKeyDown(KeyCode.UpArrow) ||
             Input.GetKeyDown(KeyCode.W)) && grounded)
