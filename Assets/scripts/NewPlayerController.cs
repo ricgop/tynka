@@ -94,10 +94,10 @@ public class NewPlayerController : MonoBehaviour
                 shootRight.transform.position = bulletRight.transform.position;
                 //Instantiate(playerBullet, transform.position, transform.rotation);
 
-
             shootSoundEffect.Play();
             fire = true;
             restartTimer = 0;
+
         }
 
     }
